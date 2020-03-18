@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
-    <title>正则表达式</title>
-</head>
-
-<body>
-    <div id='app'>
-
-    </div>
-</body>
+## 正则表达式的定义方法
+1. 显示定义
+> var 变量名 = new ReExp("正则表达式模式")
+```
+var myRegex = new ReExp("[0-9]")
+```
+2. 隐式定义
+> var 变量名 = /正则表达式模式/
+```
+var myRegex = /[0-9]/
+```
+---
+## test()方法
+```
 <script>
     // 验证邮政编码: 6个字符都是字符串
     var str1 = '300929';
@@ -32,5 +32,7 @@
     }
 
 </script>
-
-</html>
+// result:
+// 300929是正确的邮政编码
+// lupei不是正确的邮政编码
+```
