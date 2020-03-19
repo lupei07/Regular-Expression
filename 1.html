@@ -15,11 +15,11 @@
 <script>
     // 验证邮政编码: 6个字符都是字符串
     var str1 = '300929';
-    var str2 = 'lupei'
+    var str2 = '3009291'
     var str3 = '0579-12345678'
     var str4 = '12ksiee'
     // 定义正则表达式
-    var myregex = /\d{6}/;
+    var myregex = /^\d{6}$/;
     var myPhone = /0\d{3}-\d{8}/
     var myreg = /[0-9A-Z]/
     // 判断str1是否符合
@@ -45,6 +45,15 @@
         document.write(str4 + '匹配' + '</br>')
     } else {
         document.write(str4 + '不匹配' + '</br>')
+    }
+
+    var str5 = 'ygoods'
+    var myreg5 = /go+/
+    // 匹配字母o必须出现1次或者更多次
+    if (myreg5.test(str5)) {
+        document.write(str5 + '匹配' + '</br>')
+    } else {
+        document.write(str5 + '不匹配' + '</br>')
     }
 </script>
 
