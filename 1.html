@@ -17,9 +17,11 @@
     var str1 = '300929';
     var str2 = 'lupei'
     var str3 = '0579-12345678'
+    var str4 = '12ksiee'
     // 定义正则表达式
     var myregex = /\d{6}/;
     var myPhone = /0\d{3}-\d{8}/
+    var myreg = /[0-9A-Z]/
     // 判断str1是否符合
     if (myregex.test(str1)) {
         document.write(str1 + '是正确的邮政编码' + '<br/>')
@@ -34,9 +36,15 @@
     }
     // 判断str3是否符合
     if (myPhone.test(str3)) {
-        document.write(str3 + '是中国的电话号码')
+        document.write(str3 + '是中国的电话号码' + '</br>')
     } else {
-        document.write(str3 + '不是中国的电话号码')
+        document.write(str3 + '不是中国的电话号码' + '</br>')
+    }
+    // 判断str4是否符合
+    if (myreg.test(str4)) {
+        document.write(str4 + '匹配' + '</br>')
+    } else {
+        document.write(str4 + '不匹配' + '</br>')
     }
 </script>
 

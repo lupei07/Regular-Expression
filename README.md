@@ -1,3 +1,5 @@
+> https://blog.csdn.net/CareChere/article/details/52315728?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+> https://blog.csdn.net/qq_28633249/article/details/77686976
 ## 正则表达式的定义方法
 1. 显示定义
 > var 变量名 = new ReExp("正则表达式模式")
@@ -68,4 +70,30 @@ var myRegex = /[0-9]/
         document.write(str3 + '不是中国的电话号码')
     }
     // resul: 0579-12345678是中国的电话号码
+```
+## 连接符
+我们知道要想匹配数字，正则表达式就要这样写：
+```javascript
+var reg = /[0123456789]/
+// 等价于
+var reg = /[0-9]/
+```
+其中[]表示匹配方括号内的任一字符。在正则表达式中，匹配数字或者英文字母的书写非常不方便。因此，正则表达式引入了连接符“-”来定义字符的范围。
+#### 正则表达式连接符
+| 连接符        | 说明   |
+| --------   | -----:  |
+| [0-9]      | 匹配数字，等价于\d   | 
+| [a-z]        |   匹配英文小写字母   | 
+| [A-Z]       |    匹配英文大写字母   | 
+| [0-9a-zA-Z]        |    匹配数字或英文字母    | 
+```javascript
+    var str4 = 'ksiee12'
+    var myreg = /[0-9][A-Z]/
+    if (myreg.test(str4)) {
+        document.write(str4 + '匹配' + '</br>')
+    } else {
+        document.write(str4 + '不匹配' + '</br>')
+    }
+    // resul: 不匹配
+
 ```
