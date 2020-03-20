@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1.0'>
+    <title>实例</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<style>
+    select,
+    input {
+        padding: 3px 5px;
+    }
+
+    .item {
+        padding: 10px;
+    }
+
+    label {
+        font-size: 18px;
+        color: red;
+    }
+</style>
+
+<body>
+    <div id='app'>
+        <select @change='handleChange'>
+            <option value='0'>请选择</option>
+            <option v-for="item in select" :value='item.id'>{{item.name}}</option>
+        </select>
+        <input type='text' @change='handleInput'>
+        <label>{{message}}</label>
+        <div class="item">regex: {{selected.reg}}</div>
+        <div class="item">msg: {{selected.msg}}</div>
+    </div>
+</body>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            select: [
+                {
+                    id: 1,
+                    reg: '^1\\d{10}$',
+                    name: '手机号',
+                    msg: '匹配1开头的11位数字'
+                }, {
+                    id: 2,
+                    reg: '^[0-9a-zA-Z_]{6,8}$',
+                    name: '密码',
+                    msg: '匹配6-8字母或数字或下划线'
+                }, {
+                    id: 3,
+                    reg: '^\\d{6}$',
+                    name: '数字验证码',
+                    msg: '匹配6位数字验证码'
+                }
+            ],
+            selected: {
+                reg: '',
+                msg: ''
+            },
+            message: ''
+        },
+        methods: {
+            handleChange(e) {
+                const { value } = e.target
+                const temp = this.select.filter(item => item.id == value)
+                this.selected = temp[0]
+            },
+            handleInput(e) {
+                const { value } = e.target;
+                let { reg } = this.selected
+                const myRegex = new RegExp(reg)
+                if (myRegex.test(value)) {
+                    this.message = '匹配'
+                } else {
+                    this.message = '不匹配'
+                }
+            }
+        },
+    })
+</script>
+
+</html>

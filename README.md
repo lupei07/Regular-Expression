@@ -2,9 +2,9 @@
 > https://blog.csdn.net/qq_28633249/article/details/77686976
 ## 正则表达式的定义方法
 1. 显示定义
-> var 变量名 = new ReExp("正则表达式模式")
+> var 变量名 = new RegExp("正则表达式模式")
 ```javascript
-var myRegex = new ReExp("[0-9]")
+var myRegex = new RegExp("[0-9]")
 ```
 2. 隐式定义
 > var 变量名 = /正则表达式模式/
